@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { faker } from "@faker-js/faker";
 
 // 1) Create a new Context component
@@ -51,4 +51,9 @@ function PostProvider({ children }) {
   );
 }
 
-export { PostContext, PostProvider };
+function usePosts() {
+  const context = useContext(PostContext);
+  return context;
+}
+
+export { PostProvider, usePosts };
