@@ -53,6 +53,10 @@ function PostProvider({ children }) {
 
 function usePosts() {
   const context = useContext(PostContext);
+  if (context === undefined)
+    throw new Error(
+      "usePosts is undefined because it is defined inside the children component of App"
+    );
   return context;
 }
 
